@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: GreenGuardian
+  docker:
+    compose:
+      file: "../compose.yaml"
