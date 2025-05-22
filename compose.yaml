@@ -23,11 +23,11 @@ services:
         target: /etc/influxdb2
 secrets:
   influxdb2-admin-username:
-    file: backend/influxdb/.influxdb2-admin-username
+    file: influxdb/.influxdb2-admin-username
   influxdb2-admin-password:
-    file: backend/influxdb/.influxdb2-admin-password
+    file: influxdb/.influxdb2-admin-password
   influxdb2-admin-token:
-    file: backend/influxdb/.influxdb2-admin-token
+    file: influxdb/.influxdb2-admin-token
 volumes:
   influxdb2-data:
   influxdb2-config:
