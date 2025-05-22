@@ -1,4 +1,3 @@
-"use client";
 import {
   Select,
   SelectGroup,
@@ -8,18 +7,21 @@ import {
   SelectTrigger,
   SelectContent,
 } from "@/components/ui/select";
-import { useState } from "react";
 
-export default function PlantsSelect() {
-  const [selectedPlantType, setSelectedPlantType] = useState("all");
+interface PlantTypeSelectProps {
+  className?: string;
+  plantType: string;
+  handlePlantTypeChange: (value: string) => void;
+}
 
+export default function PlantTypeSelect({
+  className,
+  plantType,
+  handlePlantTypeChange,
+}: PlantTypeSelectProps) {
   return (
-    <div className="flex justify-center w-full md:hidden">
-      <Select
-        value={selectedPlantType}
-        onValueChange={setSelectedPlantType}
-        defaultValue="all"
-      >
+    <div className={className}>
+      <Select value={plantType} onValueChange={handlePlantTypeChange}>
         <SelectTrigger className="flex-1 py-5 bg-muted">
           <SelectValue placeholder="Select a plant type" />
         </SelectTrigger>
