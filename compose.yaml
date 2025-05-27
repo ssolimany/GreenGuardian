@@ -1,6 +1,7 @@
 services:
   influxdb2:
     image: influxdb:2
+    container_name: influxdb
     ports:
       - 8086:8086
     environment:
@@ -21,6 +22,26 @@ services:
       - type: volume
         source: influxdb2-config
         target: /etc/influxdb2
+  miflora-mqtt-daemon:
+    image: ghcr.io/ssolimany/miflora-mqtt-daemon:latest
+    container_name: miflora-mqtt-daemon
+    environment:
+      MQTT_HOSTNAME: localhost
+      MQTT_PORT: 1883
+      MQTT_USERNAME: user
+      MQTT_PASSWORD: pwd123
+    volumes:
+      - ./mqtt/sensors:/config
+    network_mode: host
+  eclipse-mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: eclipse-mosquitto
+    ports:
+      - 1883:1883
+    user: "1883"
+    volumes:
+      - ./mqtt/server/config:/mosquitto/config:rw
+
 secrets:
   influxdb2-admin-username:
     file: influxdb/.influxdb2-admin-username
