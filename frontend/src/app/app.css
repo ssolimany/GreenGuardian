@@ -1,0 +1,23 @@
+main {
+  flex: 1;
+}
+.logo {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  margin-left: -5px;
+}
+.logo-icon {
+  font-size: 38px;
+  color: green;
+}
+.logo-name {
+  margin: 0;
+  color: black;
+}
+.slogan {
+    color: rgb(75, 85, 99);
+    font-size: 16px;
+    margin: 0;
+    margin-top: 5px;
+}
